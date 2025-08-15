@@ -1,12 +1,29 @@
-# React + Vite
+# Gym Management System
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Overview
+This is a Gym Management System built using **React** and **Vite**.  
+It allows managing gym content, workout programs, merchandise gallery, recipes, and contact information dynamically.
 
-Currently, two official plugins are available:
+## Features
+- **Admin Dashboard** to edit content and images.
+- **Workout Programs** management.
+- **Merchandise Gallery** with add/edit functionality.
+- **Recipes Section** for healthy meal plans.
+- **Contact Section** with editable content.
+- **Responsive Design** compatible with mobile and desktop.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Tech Stack
+- **Front-end:** React, JSX, CSS
+- **Bundler:** Vite
+- **Languages:** JavaScript, HTML, CSS
 
-## Expanding the ESLint configuration
+## Installation
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/m0hammedahmed/Gym-.git
+## Admin Login
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+To access the admin dashboard, use the following credentials:
+
+- **Username / Email:** admin@example.com
+- **Password:** admin123
