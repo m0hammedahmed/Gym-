@@ -26,4 +26,4 @@ It allows managing gym content, workout programs, merchandise gallery, recipes, 
 To access the admin dashboard, use the following credentials:
 
 - **Username / Email:** admin@example.com
-- **Password:** admin123
+- **Password:** 123456
