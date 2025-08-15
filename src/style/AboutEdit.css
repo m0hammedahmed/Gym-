@@ -1,0 +1,78 @@
+.about-edit {
+  max-width: 800px;
+  margin: 20px auto;
+  color: #ffffff;
+  padding: 25px;
+  background: #1a1c24;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  font-family: Arial, sans-serif;
+}
+
+.about-edit h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 26px;
+  color: #333;
+}
+
+.about-edit label {
+  display: block;
+  margin-top: 15px;
+  font-weight: bold;
+  color: #444;
+}
+
+.about-edit input,
+.about-edit textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 8px;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  font-size: 15px;
+  transition: border-color 0.3s;
+}
+
+.about-edit input:focus,
+.about-edit textarea:focus {
+  outline: none;
+  border-color: #4cafef;
+  box-shadow: 0 0 5px rgba(76, 175, 239, 0.3);
+}
+
+.about-edit textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+
+.about-edit h3 {
+  margin-top: 20px;
+  color: #555;
+}
+
+.about-edit .feature-card-edit {
+  background: #3a3939;
+  padding: 12px;
+  border-radius: 8px;
+  margin-top: 10px;
+}
+
+.about-edit button {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  margin-top: 20px;
+  background: #4cafef;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.about-edit button:hover {
+  background: #3a9ad9;
+}

@@ -1,0 +1,58 @@
+.footer-edit {
+  background: #111;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 900px;
+  margin: 30px auto;
+  color: white;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+}
+
+.footer-edit h2 {
+  text-align: center;
+  color: orange;
+  margin-bottom: 20px;
+}
+
+.footer-edit label {
+  display: block;
+  margin: 10px 0 5px;
+  font-weight: bold;
+}
+
+.footer-edit input[type="text"],
+.footer-edit textarea {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+
+.footer-edit input[type="file"] {
+  margin-bottom: 10px;
+}
+
+.footer-edit .preview {
+  display: block;
+  max-width: 80px;
+  max-height: 80px;
+  margin: 5px 0 15px;
+  border-radius: 5px;
+}
+
+.footer-edit .save-btn {
+  background: orange;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.footer-edit .save-btn:hover {
+  background: darkorange;
+}

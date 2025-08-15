@@ -1,0 +1,83 @@
+.edit-hero-container {
+  max-width: 600px;
+  margin: 5px auto;
+  padding: 10px 30px;
+  background-color: #2a2d3e; /* لون الخلفية الداكن */
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  color: #f8f8f2;
+  font-family: 'Arial', sans-serif;
+}
+
+.edit-hero-title {
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  font-size: 28px;
+  color: #ff9f1c; /* لون العنوان */
+}
+
+.edit-hero-input,
+.edit-hero-textarea {
+  width: 100%;
+  padding: 12px 15px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  border: 1px solid #44475a;
+  background-color: #1a1c24;
+  color: #f8f8f2;
+  font-size: 16px;
+  outline: none;
+  transition: border 0.3s, box-shadow 0.3s;
+}
+
+.edit-hero-input:focus,
+.edit-hero-textarea:focus {
+  border: 1px solid #ff9f1c;
+  box-shadow: 0 0 8px rgba(255, 159, 28, 0.6);
+}
+
+.edit-hero-textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.edit-hero-btn {
+  padding: 12px;
+  display: flex;
+  text-align: center;
+    justify-content: center;
+    align-items: center;
+  border: none;
+  border-radius: 8px;
+  background-color: #ff9f1c;
+  color: #1a1c24;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.edit-hero-btn:hover {
+  background-color: #e68b00;
+  transform: translateY(-2px);
+}
+.hero-image-preview {
+  margin: 15px 0;
+  text-align: center;
+}
+
+.hero-image-preview img {
+  max-width: 300px;    /* أقصى عرض للصورة */
+  max-height: 200px;   /* أقصى ارتفاع */
+  width: auto;         /* يحافظ على النسبة الأصلية للصورة */
+  height: auto;
+  border-radius: 10px;
+  object-fit: cover;
+  border: 2px solid #ff9f1c;
+}
+.con {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}

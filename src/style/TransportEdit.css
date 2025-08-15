@@ -1,0 +1,60 @@
+.transport-edit {
+  max-width: 800px;
+  margin: auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.card-edit {
+  background: #222;
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  color: white;
+}
+
+label {
+  display: block;
+  margin-top: 10px;
+}
+
+input[type="text"], textarea {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border-radius: 5px;
+  border: none;
+}
+
+textarea {
+  min-height: 60px;
+}
+
+.preview {
+  margin-top: 10px;
+  max-width: 150px;
+  border-radius: 5px;
+}
+
+button {
+  margin-top: 15px;
+  padding: 8px 15px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  background: orange;
+  color: black;
+  font-weight: bold;
+}
+
+button:hover {
+  background: darkorange;
+}
+.preview {
+  margin-top: 10px;
+  width: 50px;
+  height: 50px;
+  object-fit: cover; /* عشان تحافظ على الشكل ومتلخبطش النسب */
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}

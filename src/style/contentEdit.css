@@ -1,0 +1,94 @@
+.content-edit {
+  max-width: 600px;
+  margin: 50px auto;
+  background: #1a1c24; /* Dark background for contrast */
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #f8f8f2;
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+.content-edit h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #ff9f1c;
+  font-size: 1.8rem;
+  letter-spacing: 1px;
+  animation: slideDown 0.7s ease-in-out;
+}
+
+.content-edit label {
+  display: block;
+  margin: 15px 0 8px;
+  font-weight: bold;
+  color: #e63946;
+  animation: fadeInUp 0.6s ease-in-out;
+}
+
+.content-edit input,
+.content-edit textarea {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #44475a;
+  background: #2a2d3e;
+  color: #cfcfcf;
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.content-edit input:focus,
+.content-edit textarea:focus {
+  border-color: #ff9f1c;
+  box-shadow: 0 0 10px rgba(255, 159, 28, 0.4);
+}
+
+.content-edit textarea {
+  resize: none;
+  min-height: 80px;
+}
+
+.content-edit button {
+  margin-top: 20px;
+  width: 100%;
+  background: linear-gradient(135deg, #ff9f1c, #e63946);
+  color: #1a1c24;
+  font-weight: bold;
+  padding: 14px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  animation: bounceIn 0.6s ease-in-out;
+}
+
+.content-edit button:hover {
+  background: linear-gradient(135deg, #e63946, #ff9f1c);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 15px rgba(255, 159, 28, 0.4);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideDown {
+  from { transform: translateY(-20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes bounceIn {
+  0% { transform: scale(0.9); opacity: 0; }
+  60% { transform: scale(1.05); opacity: 1; }
+  100% { transform: scale(1); }
+}

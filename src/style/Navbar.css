@@ -1,0 +1,113 @@
+.navbar {
+  background: black;
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #fff;
+  font-family: 'Segoe UI', sans-serif;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  border-bottom: 1px solid #d39c503f;
+}
+
+.logo a {
+  text-decoration: none;
+  font-size: 26px;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+/* Hamburger icon */
+.hamburger {
+  font-size: 26px;
+  cursor: pointer;
+  display: none;
+}
+
+/* Links */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: #d6d3d3;
+  font-weight: 500;
+  transition: 0.3s ease;
+}
+
+.nav-links li a:hover {
+  color: #ff9f1c;
+}
+
+.nav-links li.active a {
+  color: #ff9f1c;
+  font-weight: bold;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 80px;
+    right: 0;
+  background: linear-gradient(135deg, #275078, #02050b);
+    flex-direction: column;
+    width: 220px;
+    padding: 20px;
+    color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    transform: translateX(100%);
+    transition: 0.3s ease-in-out;
+  }
+
+  .nav-links.open {
+    transform: translateX(0%);
+  }
+
+  .nav-links li {
+    margin-bottom: 12px;
+  }
+}
+/* Navbar.css */
+
+/* ... (الكود الحالي الخاص بك) ... */
+
+/* Logout Button Styling */
+.logout-btn {
+  background-color: transparent; /* خلفية شفافة */
+  color: #fff; /* لون النص أبيض مثل باقي الروابط */
+  border: 1px solid #ff9f1c; /* إطار بنفس اللون الأصفر المميز */
+  padding: 8px 20px; /* نفس حجم باقي العناصر تقريبًا */
+  font-family: inherit; /* استخدام نفس خط الموقع */
+  font-size: 1rem; /* حجم خط متناسق */
+  font-weight: bold; /* خط عريض للوضوح */
+  border-radius: 8px; /* حواف دائرية */
+  cursor: pointer;
+  margin-top: -4px;
+  transition: all 0.3s ease; /* تأثير حركة ناعم لكل الخصائص */
+}
+
+/* Hover effect for the logout button */
+.logout-btn:hover {
+  background-color: #ff9f1c; /* تغيير الخلفية إلى اللون الأصفر عند المرور */
+  color: #02050b; /* تغيير لون النص إلى الداكن ليكون واضحًا */
+  transform: translateY(-2px); /* رفعه للأعلى قليلاً */
+  box-shadow: 0 4px 12px rgba(255, 159, 28, 0.3); /* إضافة ظل خفيف */
+}
+
+/* Active effect for the logout button */
+.logout-btn:active {
+  transform: translateY(0); /* إعادته لمكانه عند الضغط */
+  box-shadow: 0 2px 6px rgba(255, 159, 28, 0.2); /* تقليل الظل */
+}

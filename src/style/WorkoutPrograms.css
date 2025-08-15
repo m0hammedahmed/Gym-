@@ -1,0 +1,220 @@
+.workout-section {
+  background: black;
+  padding: 60px 20px;
+  text-align: center;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  color: #ff9f1c;
+  margin-bottom: 30px;
+}
+
+.slider-wrapper {
+  overflow: hidden;
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.slider-track {
+  display: flex;
+  width: max-content;
+  animation: slideInfinite 30s linear infinite;
+}
+
+@keyframes slideInfinite {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* ===== Card Styling ===== */
+.program-card.slider {
+  flex: 0 0 260px;
+  height: 340px;
+  margin: 0 12px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 16px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.6);
+  transition: transform 0.3s ease;
+}
+
+.program-card.slider:hover {
+  transform: scale(1.04);
+}
+
+.program-overlay {
+  position: a;
+  bottom: 0;
+  width: 100%;
+  background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+  
+}
+.program-overlay h3 {
+  writing-mode: vertical-rl; /* الكتابة بالطول من فوق لتحت */
+  transform: rotate(180deg); /* لو عايز تقلب الاتجاه */
+  color: white;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  position: absolute;
+  left: 10px; /* خليها على جنب */
+  top: 0;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.program-overlay p {
+  color: #ccc;
+  font-size: 0.9rem;
+  margin-top: 8px;
+}
+
+.start-btn {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px 22px;
+  border-radius: 30px;
+  background: #ff9f1c;
+  color: #000;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.start-btn:hover {
+  transform: translateX(-50%) scale(1.05);
+}
+
+/* ===== Modal Styling ===== */
+.modal-overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.modal-content {
+  background: #1a1a1a;
+  border-radius: 12px;
+  padding: 30px;
+  width: 90%;
+  max-width: 900px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  position: relative;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.7);
+}
+
+.modal-close {
+  position: absolute;
+  top: 15px;
+  right: 25px;
+  font-size: 2rem;
+  color: #ff9f1c;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.modal-video {
+  flex: 1 1 45%;
+}
+
+.modal-video video {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.modal-description {
+  flex: 1 1 45%;
+  color: #ccc;
+}
+
+.modal-description h2 {
+  font-size: 1.8rem;
+  color: #ff9f1c;
+  margin-bottom: 15px;
+}
+
+.modal-description p {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .modal-content {
+    flex-direction: column;
+    padding: 20px;
+  }
+}
+/* 🔥 Scrollable Merch Section */
+.merch-scroll-container {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  padding: 20px 0;
+  scroll-snap-type: x mandatory;
+}
+
+.merch-scroll-container::-webkit-scrollbar {
+  height: 8px;
+}
+
+.merch-scroll-container::-webkit-scrollbar-thumb {
+  background: #FFD700;
+  border-radius: 10px;
+}
+
+.merch-card-scroll {
+  flex: 0 0 200px;
+  background-color: #222;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0 0 10px #000;
+  scroll-snap-align: start;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.merch-card-scroll:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px #FFD70088;
+}
+
+.merch-img-scroll {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border: 4px solid #FFD700;
+  margin-bottom: 10px;
+}
+
+/* ⬇️ شكل الصور */
+.merch-img-scroll.rounded {
+  border-radius: 20px;
+}
+.merch-img-scroll.circle {
+  border-radius: 999px;
+}
+.merch-img-scroll.square {
+  border-radius: 6px;
+}

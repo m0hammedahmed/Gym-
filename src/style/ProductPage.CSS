@@ -1,0 +1,97 @@
+.product-page {
+  padding: 4rem 2rem;
+  background-color: #1a1c24;
+  color: #fff;
+  min-height: 100vh;
+}
+
+.page-title {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.product-card {
+  background-color: #2a2d3e;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 25px rgba(255, 159, 28, 0.3);
+}
+
+.image-container {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+
+.image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.product-info {
+  padding: 1.2rem;
+  text-align: center;
+}
+
+.product-info h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.product-info p {
+  color: #ff9f1c;
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+
+.product-info button {
+  padding: 0.6rem 1.4rem;
+  background-color: #ff9f1c;
+  color: #1a1c24;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.product-info button:hover {
+  background-color: #e68a00;
+}
+
+/* SPECIAL GYM CARD */
+.gym-card {
+  border: 2px solid #ff9f1c;
+  background: linear-gradient(to bottom right, #2a2d3e, #1a1c24);
+  position: relative;
+
+}
+
+.gym-card::before {
+  content: "GYM";
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background-color: #ff9f1c;
+  color: #1a1c24;
+  font-weight: bold;
+  padding: 0.2rem 0.6rem;
+  border-radius: 5px;
+  font-size: 0.8rem;
+}

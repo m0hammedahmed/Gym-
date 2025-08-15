@@ -1,0 +1,60 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+    background: black;
+  color: #fff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.main-container {
+  padding: 2rem;
+}
+
+.gallery-section {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.title {
+  font-size: 1.8rem;
+  color: #ffe600;
+  margin-bottom: 2rem;
+  font-weight: bold;
+}
+
+.gallery-static-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr))!important;
+  gap: 1.5rem!important;
+}
+
+.photo-card {
+  width: 100% !important;
+  height: 260px!important; /* حجم الكارد ثابت */
+  border-radius: 1.5rem;
+  overflow: hidden;
+  background-color: #111;
+  box-shadow: 0 8px 16px rgba(255, 255, 255, 0.05);
+  transition: transform 0.3s ease;
+  position: relative!important;
+}
+
+.photo-card:hover {
+  transform: scale(1.03);
+}
+
+.photo-inner {
+  width: 100%!important;
+  height: 100%!important;
+}
+
+.photo-inner img {
+  width: 100%!important;
+  height: 100%!important;
+  object-fit: cover!important; /* الصورة تملى الكارد مهما كان أبعادها */
+  display: block!important;
+}
