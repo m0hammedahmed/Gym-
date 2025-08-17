@@ -14,7 +14,17 @@ function App() {
   const [isAdmin, setIsAdmin] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-  // ✅ أول ما الصفحة تفتح (أو Refresh) استرجع الحالة من localStorage
+  // ✅ الحالة الرئيسية لاسم الجيم
+  const [gymName, setGymName] = useState(() => {
+    return localStorage.getItem("gymName") || "FitZone";
+  });
+
+  // حفظ الاسم في localStorage
+  useEffect(() => {
+    localStorage.setItem("gymName", gymName);
+  }, [gymName]);
+
+  // أول ما الصفحة تفتح أو Refresh استرجع حالة تسجيل الدخول والدور
   useEffect(() => {
     const loggedInStatus = localStorage.getItem("isLoggedIn") === "true";
     const role = localStorage.getItem("role");
@@ -25,7 +35,9 @@ function App() {
 
   return (
     <>
-      <Navbar isAdmin={isAdmin} setIsAdmin={setIsAdmin} />
+      {/* Navbar يسمع أي تغيير في الاسم */}
+      <Navbar isAdmin={isAdmin} setIsAdmin={setIsAdmin} gymName={gymName} />
+
       <Routes>
         <Route path="/signup" element={<SignUp />} />
         <Route path="/login" element={<Login setIsAdmin={setIsAdmin} />} />
@@ -34,10 +46,16 @@ function App() {
         <Route path="/connect" element={<Connect />} />
         <Route path="/transport" element={<Transport />} />
 
-        {/* ✅ حماية صفحة الأدمن */}
+        {/* حماية صفحة الأدمن وتمرير الحالة لتعديل الاسم */}
         <Route
           path="/admin"
-          element={isAdmin ? <AdminDashboard /> : <Home />}
+          element={
+            isAdmin ? (
+              <AdminDashboard gymName={gymName} setGymName={setGymName} />
+            ) : (
+              <Home />
+            )
+          }
         />
       </Routes>
     </>

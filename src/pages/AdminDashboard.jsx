@@ -4,24 +4,24 @@ import WorkoutProgramsEdit from "../components/WorkoutProgramsEdit";
 import MerchGalleryEdit from "../components/MerchGalleryEdit";
 import AdminRecipes from "../components/AdminRecipes";
 import ContentEdit from "../components/ContentEdit";
+import AboutEdit from "../components/AboutEdit";
+import TransportEdit from "../components/TransportEdit";
+import FooterEdit from "../components/FooterEdit";
+import NavbarEdit from '../components/NavbarEdit';
+
 import contactImageDefault from "../data/gairl.jpg";
 import logoDefault from "../data/logo.jpg";
 import { RecipesProvider } from "../data/RecipesContext";
-import AboutEdit from  "../components/AboutEdit";
-import TransportEdit from "../components/TransportEdit";
 
-// ✅ استدعاء مكون تعديل الفوتر
-import FooterEdit from  "../components/FooterEdit";
-
-export default function AdminDashboard() {
+export default function AdminDashboard({ gymName, setGymName }) {
   // State لنصوص الصفحات
   const [heroTitle, setHeroTitle] = useState("Welcome to My Fitness Site");
   const [heroSubtitle, setHeroSubtitle] = useState("Achieve your goals with us");
   const [workoutText, setWorkoutText] = useState("Check out our workout programs");
 
   // State للصور
-  const [heroImage, setHeroImage] = useState("/data/hero.jpg");
-  const [merchImage, setMerchImage] = useState("/data/merch1.jpg");
+  const [heroImage, setHeroImage] = useState("/data/2.jpg");
+  const [merchImage, setMerchImage] = useState("/data/3.jpg");
 
   // State لمحتوى صفحة Contact
   const [contactContent, setContactContent] = useState(() => {
@@ -44,6 +44,9 @@ export default function AdminDashboard() {
 
   return (
     <>
+      {/* تعديل Navbar */}
+      <NavbarEdit gymName={gymName} setGymName={setGymName} />
+
       <RecipesProvider>
         {/* مكونات التعديل */}
         <EditHero title={heroTitle} subtitle={heroSubtitle} image={heroImage} />
@@ -58,7 +61,7 @@ export default function AdminDashboard() {
       <AboutEdit />
       <TransportEdit />
 
-      {/* ✅ تعديل الفوتر */}
+      {/* تعديل الفوتر */}
       <FooterEdit />
     </>
   );
