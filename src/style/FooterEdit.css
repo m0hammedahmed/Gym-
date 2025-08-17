@@ -27,6 +27,7 @@
   border: none;
   border-radius: 5px;
   margin-bottom: 15px;
+  font-size: 1rem;
 }
 
 .footer-edit input[type="file"] {
@@ -51,8 +52,61 @@
   border-radius: 5px;
   font-weight: bold;
   transition: background 0.3s ease;
+  width: 100%;
 }
 
 .footer-edit .save-btn:hover {
   background: darkorange;
+}
+
+/* 📱 Mobile (max 576px) */
+@media (max-width: 576px) {
+  .footer-edit {
+    padding: 15px;
+    margin: 15px;
+  }
+
+  .footer-edit h2 {
+    font-size: 1.3rem;
+  }
+
+  .footer-edit input[type="text"],
+  .footer-edit textarea {
+    font-size: 0.9rem;
+    padding: 8px;
+  }
+
+  .footer-edit .save-btn {
+    font-size: 14px;
+    padding: 10px;
+  }
+}
+
+/* 📲 Tablet (max 768px) */
+@media (max-width: 768px) {
+  .footer-edit {
+    padding: 18px;
+  }
+
+  .footer-edit h2 {
+    font-size: 1.5rem;
+  }
+
+  .footer-edit .save-btn {
+    font-size: 15px;
+  }
+}
+
+/* 💻 Laptop متوسط (max 992px) */
+@media (max-width: 992px) {
+  .footer-edit {
+    max-width: 750px;
+  }
+}
+
+/* 🖥️ Desktop كبير (max 1200px) */
+@media (max-width: 1200px) {
+  .footer-edit {
+    max-width: 850px;
+  }
 }

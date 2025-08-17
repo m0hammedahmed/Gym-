@@ -135,3 +135,66 @@ tbody tr {
 .add-button:hover {
   background-color: #2980b9;
 }
+/* Media Queries للأجهزة الصغيرة */
+@media (max-width: 768px) {
+  .admin-container {
+    width: 95%;
+    padding: 15px;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+  }
+
+  input {
+    width: 90%;
+    margin: 8px 0;
+    padding: 12px;
+  }
+
+  .form-container {
+    flex-direction: column; /* حط العناصر فوق بعض */
+    gap: 15px;
+  }
+
+  button, .add-button {
+    width: 90%;
+    padding: 12px;
+  }
+
+  table {
+    font-size: 0.9rem;
+    display: block; /* عشان الجدول يبقى قابل للتمرير */
+    overflow-x: auto;
+  }
+
+  th, td {
+    padding: 10px;
+  }
+
+  td img {
+    width: 60px;
+    height: auto;
+  }
+}
+
+/* للأجهزة الأصغر جداً مثل الموبايلات الصغيرة */
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  input, button, .add-button {
+    width: 100%;
+    padding: 14px;
+  }
+
+  table {
+    font-size: 0.8rem;
+  }
+
+  td img {
+    width: 50px;
+  }
+}

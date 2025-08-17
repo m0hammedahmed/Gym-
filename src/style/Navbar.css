@@ -111,3 +111,72 @@
   transform: translateY(0); /* إعادته لمكانه عند الضغط */
   box-shadow: 0 2px 6px rgba(255, 159, 28, 0.2); /* تقليل الظل */
 }
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+    z-index: 1001; /* عشان يبقى فوق المنيو */
+  }
+
+  .nav-links {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    background: linear-gradient(135deg, #275078, #02050b);
+    flex-direction: column;
+    width: 250px;
+    padding: 80px 20px 20px; /* padding من فوق عشان اللوجو أو المساحة */
+    border-radius: 0 0 0 12px;
+    box-shadow: -4px 0 15px rgba(0, 0, 0, 0.5);
+
+    transform: translateX(100%); /* بره الشاشة */
+    opacity: 0;
+    transition: transform 0.4s ease, opacity 0.4s ease; /* انيمشن انسيابى */
+    z-index: 1000;
+  }
+
+  .nav-links.open {
+    transform: translateX(0); /* تدخل الشاشة */
+    opacity: 1;
+  }
+
+  .nav-links li {
+    margin-bottom: 20px;
+    opacity: 0;
+    transform: translateX(30px);
+    transition: all 0.4s ease;
+  }
+
+  /* انيمشن stagger effect لعناصر الليست */
+  .nav-links.open li {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .nav-links.open li:nth-child(1) { transition-delay: 0.1s; }
+  .nav-links.open li:nth-child(2) { transition-delay: 0.2s; }
+  .nav-links.open li:nth-child(3) { transition-delay: 0.3s; }
+  .nav-links.open li:nth-child(4) { transition-delay: 0.4s; }
+  .nav-links.open li:nth-child(5) { transition-delay: 0.5s; }
+}
+
+/* 🔥 اوفرلاى (خلفية مع blur) */
+.nav-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  backdrop-filter: blur(4px);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease;
+  z-index: 999;
+}
+
+.nav-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}

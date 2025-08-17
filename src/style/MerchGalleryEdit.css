@@ -1,10 +1,9 @@
 /* MerchGalleryEdit.css */
 
 .edit-merch-container {
-    padding: 20px;
+  padding: 20px;
   max-width: 1100px;
   margin: 30px auto;
-  padding: 20px;
   background-color: #1A1C24;
   color: #F8F8F2;
   border-radius: 12px;
@@ -40,7 +39,6 @@
 }
 
 .merch-form img {
-   
   border-radius: 8px;
   border: 1px solid #44475A;
   padding: 10px;
@@ -67,7 +65,6 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
   gap: 20px;
-  
 }
 
 .photo-card {
@@ -76,75 +73,14 @@
   border-radius: 12px;
   overflow: hidden;
   position: relative;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.photo-card img {
-  width: 100%;
-  display: block;
-  border-bottom: 1px solid #44475A;
-}
-
-.photo-card.round img {
-  border-radius: 50%;
-  margin: 10px;
-}
-
-.photo-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.7);
-}
-
-.card-actions {
   display: flex;
-  justify-content: space-around;
-  padding: 18px;
-  background-color: #1A1C24;
-}
-
-.card-actions button {
-  padding: 5px 12px;
-  border-radius: 6px;
-  border: none;
-  background-color: #E63946;
-  color: #F8F8F2;
-  cursor: pointer;
-  font-size: 12px;
-  transition: all 0.2s ease;
-}
-
-.card-actions button:hover {
-  background-color: #d12b3f;
-  transform: translateY(-2px);
-}
-
-@media screen and (max-width: 600px) {
-  .merch-cards {
-    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-  }
-  
-  .merch-form {
-    flex-direction: column;
-  }
-}
-.photo-inner {
-  position: relative;
-  width: 100%;
-  height: 100%;
-}.photo-card {
-  background-color: #2A2D3E;
-  border: 1px solid #44475A;
-  border-radius: 12px;
-  overflow: hidden;
-  position: relative;
-  display: flex;
-  flex-direction: column; /* لتقسيم الصورة والزراير عمودياً */
-  height: 270px; /* طول ثابت لكل الكارد */
+  flex-direction: column;
+  height: 270px; /* طول ثابت للكارد */
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .photo-inner {
-  flex: 0 0 85%; /* الصورة تاخد 85% من الكارد */
+  flex: 0 0 85%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -165,11 +101,96 @@
   height: 100%;
 }
 
+.photo-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.7);
+}
+
 .card-actions {
-  flex: 0 0 15%; /* طول الزراير */
+  flex: 0 0 15%;
   display: flex;
   justify-content: space-around;
   align-items: center;
   background-color: #1A1C24;
   padding: 5px;
+}
+
+.card-actions button {
+  padding: 5px 12px;
+  border-radius: 6px;
+  border: none;
+  background-color: #E63946;
+  color: #F8F8F2;
+  cursor: pointer;
+  font-size: 12px;
+  transition: all 0.2s ease;
+}
+
+.card-actions button:hover {
+  background-color: #d12b3f;
+  transform: translateY(-2px);
+}
+
+/* 📱 Mobile (max-width: 576px) */
+@media (max-width: 576px) {
+  .edit-merch-container {
+    padding: 15px;
+    margin: 15px;
+  }
+
+  .edit-merch-container h2 {
+    font-size: 20px;
+  }
+
+  .merch-form {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .merch-cards {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 15px;
+  }
+
+  .photo-card {
+    height: 220px;
+  }
+
+  .card-actions button {
+    font-size: 11px;
+    padding: 4px 10px;
+  }
+}
+
+/* 📲 Tablet (max-width: 768px) */
+@media (max-width: 768px) {
+  .edit-merch-container {
+    padding: 18px;
+  }
+
+  .edit-merch-container h2 {
+    font-size: 24px;
+  }
+
+  .merch-cards {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+}
+
+/* 💻 Laptop (max-width: 992px) */
+@media (max-width: 992px) {
+  .edit-merch-container {
+    max-width: 900px;
+  }
+
+  .merch-cards {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  }
+}
+
+/* 🖥️ Desktop كبير (max-width: 1200px) */
+@media (max-width: 1200px) {
+  .edit-merch-container {
+    max-width: 1000px;
+  }
 }

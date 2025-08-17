@@ -72,6 +72,60 @@
   box-shadow: 0 8px 15px rgba(255, 159, 28, 0.4);
 }
 
+/* 📱 Mobile (max 576px) */
+@media (max-width: 576px) {
+  .content-edit {
+    margin: 20px 10px;
+    padding: 18px;
+  }
+
+  .content-edit h2 {
+    font-size: 1.4rem;
+  }
+
+  .content-edit input,
+  .content-edit textarea {
+    font-size: 0.9rem;
+    padding: 10px;
+  }
+
+  .content-edit button {
+    font-size: 1rem;
+    padding: 12px;
+  }
+}
+
+/* 📲 Tablet (max 768px) */
+@media (max-width: 768px) {
+  .content-edit {
+    margin: 30px 15px;
+    padding: 22px;
+  }
+
+  .content-edit h2 {
+    font-size: 1.6rem;
+  }
+
+  .content-edit button {
+    font-size: 1rem;
+  }
+}
+
+/* 💻 Laptop متوسط (max 992px) */
+@media (max-width: 992px) {
+  .content-edit {
+    max-width: 550px;
+  }
+}
+
+/* 🖥️ Desktop كبير (max 1200px) */
+@media (max-width: 1200px) {
+  .content-edit {
+    max-width: 580px;
+  }
+}
+
+/* ✨ Animations */
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }

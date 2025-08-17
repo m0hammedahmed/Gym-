@@ -1,3 +1,5 @@
+/* TransportEdit.css */
+
 .transport-edit {
   max-width: 800px;
   margin: auto;
@@ -18,7 +20,8 @@ label {
   margin-top: 10px;
 }
 
-input[type="text"], textarea {
+input[type="text"],
+textarea {
   width: 100%;
   padding: 8px;
   margin-top: 5px;
@@ -32,8 +35,11 @@ textarea {
 
 .preview {
   margin-top: 10px;
-  max-width: 150px;
+  width: 50px;
+  height: 50px;
+  object-fit: cover; /* يحافظ على النسب */
   border-radius: 5px;
+  border: 1px solid #ccc;
 }
 
 button {
@@ -45,16 +51,68 @@ button {
   background: orange;
   color: black;
   font-weight: bold;
+  transition: background 0.3s ease;
 }
 
 button:hover {
   background: darkorange;
 }
-.preview {
-  margin-top: 10px;
-  width: 50px;
-  height: 50px;
-  object-fit: cover; /* عشان تحافظ على الشكل ومتلخبطش النسب */
-  border-radius: 5px;
-  border: 1px solid #ccc;
+
+/* 📱 Mobile (max-width: 576px) */
+@media (max-width: 576px) {
+  .transport-edit {
+    padding: 15px;
+    margin: 15px;
+  }
+
+  .card-edit {
+    padding: 12px;
+  }
+
+  input[type="text"],
+  textarea {
+    font-size: 14px;
+    padding: 6px;
+  }
+
+  button {
+    width: 100%;
+    font-size: 14px;
+  }
+
+  .preview {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+/* 📲 Tablet (max-width: 768px) */
+@media (max-width: 768px) {
+  .transport-edit {
+    max-width: 90%;
+  }
+
+  input[type="text"],
+  textarea {
+    font-size: 15px;
+  }
+
+  button {
+    font-size: 15px;
+    padding: 10px;
+  }
+}
+
+/* 💻 Laptop (max-width: 992px) */
+@media (max-width: 992px) {
+  .transport-edit {
+    max-width: 95%;
+  }
+}
+
+/* 🖥️ Desktop (max-width: 1200px) */
+@media (max-width: 1200px) {
+  .transport-edit {
+    max-width: 1000px;
+  }
 }
