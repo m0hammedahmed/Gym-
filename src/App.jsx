@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import { useState, useEffect } from "react";
 
 import SignUp from "./components/SignUp";
@@ -12,29 +12,35 @@ import About from "./pages/About";
 
 function App() {
   const [isAdmin, setIsAdmin] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-  // لو الصفحة اتعملها Refresh نتحقق من LocalStorage
+  // ✅ أول ما الصفحة تفتح (أو Refresh) استرجع الحالة من localStorage
   useEffect(() => {
+    const loggedInStatus = localStorage.getItem("isLoggedIn") === "true";
     const role = localStorage.getItem("role");
-    if (role === "admin") setIsAdmin(true);
+
+    setIsLoggedIn(loggedInStatus);
+    setIsAdmin(role === "admin");
   }, []);
 
   return (
-    <BrowserRouter>
+    <>
       <Navbar isAdmin={isAdmin} setIsAdmin={setIsAdmin} />
       <Routes>
         <Route path="/signup" element={<SignUp />} />
         <Route path="/login" element={<Login setIsAdmin={setIsAdmin} />} />
         <Route path="/" element={<Home />} />
-        <Route path="/About" element={<About />} />
-        <Route path="/Connect" element={<Connect />} />
-        <Route path="/Transport" element={<Transport />} />
-  
-        <Route path="/admin" element={<AdminDashboard />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/connect" element={<Connect />} />
+        <Route path="/transport" element={<Transport />} />
+
+        {/* ✅ حماية صفحة الأدمن */}
+        <Route
+          path="/admin"
+          element={isAdmin ? <AdminDashboard /> : <Home />}
+        />
       </Routes>
-      {/* يظهر Dashboard الأدمن داخل نفس الصفحة */}
-      
-    </BrowserRouter>
+    </>
   );
 }
 

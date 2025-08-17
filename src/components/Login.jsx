@@ -16,9 +16,12 @@ export default function Login({ setIsAdmin }) {
 
     // لو أدمن
     if (email === adminEmail && password === adminPassword) {
-      localStorage.setItem("isLoggedIn", "true"); // لازم علشان النافبار تعرف إنه مسجل
+      localStorage.setItem("isLoggedIn", "true"); 
       localStorage.setItem("role", "admin");
-      setIsAdmin(true); // يظهر Admin Dashboard داخل الصفحة
+      setIsAdmin(true);
+
+      // ✅ بعد تسجيل الدخول يروح على الـ Dashboard
+      navigate("/admin");
       return;
     }
 
@@ -31,9 +34,11 @@ export default function Login({ setIsAdmin }) {
     if (user) {
       localStorage.setItem("isLoggedIn", "true");
       localStorage.setItem("role", "user");
-      navigate("/"); // الصفحة الرئيسية
+
+      // ✅ يروح على الصفحة الرئيسية
+      navigate("/");
     } else {
-      alert("البريد الإلكتروني أو كلمة المرور غير صحيحة!");
+      alert("❌ البريد الإلكتروني أو كلمة المرور غير صحيحة!");
     }
   };
 
@@ -72,15 +77,9 @@ export default function Login({ setIsAdmin }) {
           </p>
 
           <div className="social-icons">
-            <a href="#">
-              <FaFacebookF />
-            </a>
-            <a href="#">
-              <FaGoogle />
-            </a>
-            <a href="#">
-              <FaTwitter />
-            </a>
+            <a href="#"><FaFacebookF /></a>
+            <a href="#"><FaGoogle /></a>
+            <a href="#"><FaTwitter /></a>
           </div>
         </div>
         <div className="auth-image">

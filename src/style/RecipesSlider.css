@@ -182,3 +182,59 @@ h2 {
   cursor: pointer;
   border: none;
 }
+/* الوضع الطبيعي (شاشات كبيرة) */
+.recipe-gallery {
+  display: flex;
+  justify-content: space-between;
+  color: #fff;
+  font-family: "system-ui", sans-serif;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  align-items: center;
+}
+
+/* للموبايل */
+@media (max-width: 768px) {
+  .recipe-gallery {
+    flex-direction: column; /* يخليهم عمود */
+    align-items: center;
+  }
+
+  .main-card {
+    width: 100%;   /* تاخد عرض الشاشة */
+    height: auto;  /* الطول يبقى تلقائي */
+    flex-direction: column; /* يخلي الصورة فوق والنص تحت */
+    margin-top: 20px;
+  }
+
+  .main-card img {
+    width: 100%;
+    height: 200px;
+    border-radius: 1rem 1rem 0 0; /* زوايا من فوق */
+  }
+
+  .content {
+    padding: 1rem;
+    text-align: center;
+  }
+
+  .sidebar {
+    width: 100%;
+    flex-direction: row; /* الصور جنب بعض */
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+  }
+
+  .thumbnail {
+    width: 45%; /* اتنين جنب بعض */
+    justify-content: center;
+  }
+
+  .thumbnail img {
+    width: 4rem;
+    height: 4rem;
+  }
+}

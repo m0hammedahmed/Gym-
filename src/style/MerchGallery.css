@@ -4,57 +4,637 @@
   box-sizing: border-box;
 }
 
-body {
-    background: black;
-  color: #fff;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+:root {
+  --primary-color: #ffe600;
+  --bg-color: #000;
+  --card-bg: #111;
+  --text-color: #fff;
+  --shadow-light: rgba(255, 255, 255, 0.05);
+  --shadow-medium: rgba(255, 255, 255, 0.1);
+  --shadow-heavy: rgba(255, 255, 255, 0.15);
+  --border-radius: 1.2rem;
+  --transition-fast: 0.2s ease;
+  --transition-medium: 0.3s ease;
+  --transition-slow: 0.5s ease;
+  --floating-distance: 8px;
 }
 
+body {
+  background: var(--bg-color);
+  color: var(--text-color);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* ========== الحاوي الرئيسي ========== */
 .main-container {
-  padding: 2rem;
+  padding: clamp(0.8rem, 3vw, 2rem);
+  min-height: 100vh;
+  animation: fadeIn 0.8s ease-out;
 }
 
 .gallery-section {
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
+  position: relative;
 }
 
+/* ========== العنوان المحسن ========== */
 .title {
-  font-size: 1.8rem;
-  color: #ffe600;
-  margin-bottom: 2rem;
-  font-weight: bold;
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  color: var(--primary-color);
+  margin-bottom: clamp(1.5rem, 4vw, 2.5rem);
+  font-weight: 700;
+  text-align: center;
+  position: relative;
+  animation: slideInDown 0.8s ease-out;
+  text-shadow: 0 0 20px rgba(255, 230, 0, 0.3);
 }
 
+.title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
+  border-radius: 2px;
+  animation: expandLine 1s ease-out 0.5s both;
+}
+
+/* ========== الشبكة المحسنة مع أعمدة محددة ========== */
 .gallery-static-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr))!important;
-  gap: 1.5rem!important;
+  gap: clamp(0.8rem, 2vw, 1.5rem);
+  padding: 1rem 0;
+  animation: fadeInUp 1s ease-out 0.3s both;
 }
 
+/* ========== كروت الصور المحسنة مع تأثير الطفو ========== */
 .photo-card {
-  width: 100% !important;
-  height: 260px!important; /* حجم الكارد ثابت */
-  border-radius: 1.5rem;
+  width: 100%;
+  border-radius: var(--border-radius);
   overflow: hidden;
-  background-color: #111;
-  box-shadow: 0 8px 16px rgba(255, 255, 255, 0.05);
-  transition: transform 0.3s ease;
-  position: relative!important;
+  background: linear-gradient(135deg, var(--card-bg), #1a1a1a);
+  box-shadow: 
+    0 6px 20px var(--shadow-light),
+    0 3px 10px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  transition: all var(--transition-medium);
+  position: relative;
+  cursor: pointer;
+  transform: translateY(0);
+  opacity: 0;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  
+  /* تأثير الطفو المستمر */
+  animation: 
+    cardSlideIn 0.8s ease-out forwards,
+    floatingAnimation 4s ease-in-out infinite;
+}
+
+/* تأخير متدرج للكروت مع تأثير الطفو */
+.photo-card:nth-child(1) { 
+  animation-delay: 0.1s, 0.1s; 
+}
+.photo-card:nth-child(2) { 
+  animation-delay: 0.2s, 0.5s; 
+}
+.photo-card:nth-child(3) { 
+  animation-delay: 0.3s, 1s; 
+}
+.photo-card:nth-child(4) { 
+  animation-delay: 0.4s, 1.5s; 
+}
+.photo-card:nth-child(5) { 
+  animation-delay: 0.5s, 2s; 
+}
+.photo-card:nth-child(6) { 
+  animation-delay: 0.6s, 2.5s; 
+}
+.photo-card:nth-child(7) { 
+  animation-delay: 0.7s, 3s; 
+}
+.photo-card:nth-child(8) { 
+  animation-delay: 0.8s, 3.5s; 
+}
+.photo-card:nth-child(n+9) { 
+  animation-delay: 0.9s, 4s; 
+}
+
+.photo-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    45deg,
+    transparent 30%,
+    rgba(255, 230, 0, 0.1) 50%,
+    transparent 70%
+  );
+  opacity: 0;
+  transition: opacity var(--transition-medium);
+  z-index: 1;
+  pointer-events: none;
 }
 
 .photo-card:hover {
-  transform: scale(1.03);
+  transform: translateY(-12px) scale(1.03);
+  box-shadow: 
+    0 25px 50px var(--shadow-medium),
+    0 10px 30px rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(255, 230, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 230, 0, 0.4);
+  animation-play-state: paused; /* إيقاف تأثير الطفو عند hover */
 }
 
+.photo-card:hover::before {
+  opacity: 1;
+}
+
+.photo-card:active {
+  transform: translateY(-6px) scale(1.01);
+  transition: all var(--transition-fast);
+}
+
+/* ========== محتوى الصورة ========== */
 .photo-inner {
-  width: 100%!important;
-  height: 100%!important;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
 }
 
 .photo-inner img {
-  width: 100%!important;
-  height: 100%!important;
-  object-fit: cover!important; /* الصورة تملى الكارد مهما كان أبعادها */
-  display: block!important;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: all var(--transition-slow);
+  filter: brightness(0.9) contrast(1.1);
+}
+
+.photo-card:hover .photo-inner img {
+  transform: scale(1.08);
+  filter: brightness(1) contrast(1.2) saturate(1.1);
+}
+
+/* تأثير التحميل */
+.photo-inner::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.15),
+    transparent
+  );
+  transition: left 0.6s ease;
+}
+
+.photo-card:hover .photo-inner::after {
+  left: 100%;
+}
+
+/* ========== الأنيميشن ========== */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes cardSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(60px) scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes expandLine {
+  from {
+    width: 0;
+  }
+  to {
+    width: 60px;
+  }
+}
+
+/* تأثير الطفو الناعم */
+@keyframes floatingAnimation {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-var(--floating-distance));
+  }
+}
+
+/* ========== تأثيرات إضافية ========== */
+.photo-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(
+    circle at center,
+    transparent 60%,
+    rgba(0, 0, 0, 0.2) 100%
+  );
+  opacity: 0;
+  transition: opacity var(--transition-medium);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.photo-card:hover::after {
+  opacity: 1;
+}
+
+/* ========== Media Queries للاستجابة المحددة ========== */
+
+/* الشاشات الكبيرة جداً - 4+ أعمدة */
+@media (min-width: 1400px) {
+  .gallery-static-grid {
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1.8rem;
+  }
+  
+  .photo-card {
+    height: 280px;
+  }
+  
+  :root {
+    --floating-distance: 10px;
+  }
+}
+
+/* الشاشات الكبيرة - 4 أعمدة */
+@media (min-width: 1024px) and (max-width: 1399px) {
+  .gallery-static-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+  }
+  
+  .photo-card {
+    height: 260px;
+  }
+  
+  :root {
+    --floating-distance: 8px;
+  }
+}
+
+/* التابلت الكبير - 3 أعمدة */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .gallery-static-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.2rem;
+  }
+  
+  .photo-card {
+    height: 240px;
+  }
+  
+  .main-container {
+    padding: 1.5rem;
+  }
+  
+  :root {
+    --floating-distance: 6px;
+  }
+}
+
+/* التابلت الصغير - 3 أعمدة */
+@media (min-width: 600px) and (max-width: 767px) {
+  .gallery-static-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+  
+  .photo-card {
+    height: 200px;
+  }
+  
+  .photo-card:hover {
+    transform: translateY(-6px) scale(1.02);
+  }
+  
+  :root {
+    --floating-distance: 5px;
+  }
+}
+
+/* الموبايل الكبير - 2 أعمدة */
+@media (min-width: 480px) and (max-width: 599px) {
+  .gallery-static-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.8rem;
+  }
+  
+  .photo-card {
+    height: 180px;
+    border-radius: 1rem;
+  }
+  
+  .main-container {
+    padding: 1rem;
+  }
+  
+  .photo-card:hover {
+    transform: translateY(-4px) scale(1.01);
+  }
+  
+  :root {
+    --floating-distance: 4px;
+  }
+}
+
+/* الموبايل الصغير - 2 أعمدة */
+@media (max-width: 479px) {
+  .gallery-static-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.6rem;
+  }
+  
+  .photo-card {
+    height: 160px;
+    border-radius: 0.8rem;
+  }
+  
+  .photo-card:hover {
+    transform: translateY(-3px);
+  }
+  
+  .main-container {
+    padding: 0.8rem;
+  }
+  
+  .title {
+    margin-bottom: 1.2rem;
+  }
+  
+  :root {
+    --floating-distance: 3px;
+  }
+}
+
+/* الموبايل الصغير جداً - 2 أعمدة */
+@media (max-width: 360px) {
+  .gallery-static-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+  }
+  
+  .photo-card {
+    height: 140px;
+  }
+  
+  .main-container {
+    padding: 0.6rem;
+  }
+  
+  :root {
+    --floating-distance: 2px;
+  }
+}
+
+/* ========== تحسينات الأداء ========== */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms ;
+    animation-iteration-count: 1 ;
+    transition-duration: 0.01ms;
+  }
+  
+  .photo-card {
+    animation: cardSlideIn 0.01ms ease-out forwards !important;
+  }
+  
+  .photo-card:hover {
+    transform: translateY(-4px) scale(1.01);
+  }
+  
+  .photo-card:hover .photo-inner img {
+    transform: none;
+  }
+}
+
+/* تحسينات للشاشات عالية الدقة */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .photo-card {
+    border-width: 0.5px;
+  }
+}
+
+/* تحسينات للوضع الأفقي على الموبايل */
+@media (max-width: 768px) and (orientation: landscape) {
+  .gallery-static-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.8rem;
+  }
+  
+  .photo-card {
+    height: 140px;
+  }
+  
+  .main-container {
+    padding: 0.8rem;
+  }
+  
+  :root {
+    --floating-distance: 3px;
+  }
+}
+
+/* ========== تحسينات إضافية ========== */
+
+/* تأثير التركيز للوصولية */
+.photo-card:focus {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+  animation-play-state: paused;
+}
+
+/* تحسين الأداء */
+.photo-inner img {
+  will-change: transform;
+}
+
+.photo-card {
+  will-change: transform, box-shadow;
+}
+
+/* تحسين التباين للنصوص */
+@media (prefers-contrast: high) {
+  .title {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  }
+  
+  .photo-card {
+    border-color: rgba(255, 255, 255, 0.3);
+  }
+}
+
+/* دعم الوضع المظلم (إضافي) */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --shadow-light: rgba(255, 255, 255, 0.08);
+    --shadow-medium: rgba(255, 255, 255, 0.12);
+  }
+}
+
+/* تحسينات للمس على الأجهزة المحمولة */
+@media (hover: none) and (pointer: coarse) {
+  .photo-card:hover {
+    transform: translateY(-2px);
+  }
+  
+  .photo-card:active {
+    transform: translateY(0);
+  }
+}
+/* أنيميشن الطفو المطور */
+@keyframes floatingAnimation {
+  0% {
+    transform: translateY(0px) rotate(0deg) scale(1);
+  }
+  25% {
+    transform: translateY(-6px) rotate(1deg) scale(1.02);
+  }
+  50% {
+    transform: translateY(0px) rotate(-1deg) scale(1);
+  }
+  75% {
+    transform: translateY(6px) rotate(1deg) scale(0.98);
+  }
+  100% {
+    transform: translateY(0px) rotate(0deg) scale(1);
+  }
+}
+
+/* نخلي كل كارت يتحرك بشكل مختلف */
+.photo-card {
+  animation: floatingAnimation 6s ease-in-out infinite;
+}
+
+/* نوزع التأخير (delay) بين الكروت */
+.photo-card:nth-child(1) { animation-delay: 0s; }
+.photo-card:nth-child(2) { animation-delay: 1s; }
+.photo-card:nth-child(3) { animation-delay: 2s; }
+.photo-card:nth-child(4) { animation-delay: 3s; }
+.photo-card:nth-child(5) { animation-delay: 4s; }
+.photo-card:nth-child(6) { animation-delay: 5s; }
+.photo-card:nth-child(7) { animation-delay: 1.5s; }
+.photo-card:nth-child(8) { animation-delay: 2.5s; }
+/* ===== Floating that never conflicts (drop at the END) ===== */
+
+/* أنيميشن الطفو باستخدام translate فقط */
+@keyframes floatY {
+  0%   { translate: 0 0; }
+  25%  { translate: 0 -6px; }
+  50%  { translate: 0 0; }
+  75%  { translate: 0 6px; }
+  100% { translate: 0 0; }
+}
+
+/* دخول أولي خفيف باستخدام scale فقط */
+@keyframes cardIn {
+  from { scale: .96; opacity: 0; }
+  to   { scale: 1;  opacity: 1; }
+}
+
+/* نشغّل اتنين أنيميشن: cardIn (مرة واحدة) + floatY (مستمر) */
+.photo-card {
+  /* نفصل التحويلات عشان متتعرضش */
+  translate: 0 0;
+  scale: 1;
+
+  /* لو عندك animation قبل كده على .photo-card هيتبدّل بده */
+  animation:
+    cardIn .6s ease-out both,
+    floatY 6s ease-in-out infinite;
+  animation-delay: .05s, var(--float-delay, 0s);
+  animation-timing-function: ease-out, ease-in-out;
+  will-change: translate, scale;
+}
+
+/* تكبير الهور فقط بـ scale عشان ميكسرش الطفو */
+.photo-card:hover {
+  scale: 1.03;
+}
+
+/* لمعان الصورة يفضل شغال زي ما هو */
+.photo-card:hover .photo-inner img {
+  transform: none;            /* نمنع تضارب مع scale/translate */
+  filter: brightness(1) contrast(1.2) saturate(1.1);
+}
+
+/* توزيع Delays مختلفة للكروت عشان الإيقاع يبقى حي */
+.photo-card:nth-child(1) { --float-delay: .0s; }
+.photo-card:nth-child(2) { --float-delay: .6s; }
+.photo-card:nth-child(3) { --float-delay: 1.2s; }
+.photo-card:nth-child(4) { --float-delay: 1.8s; }
+.photo-card:nth-child(5) { --float-delay: .3s; }
+.photo-card:nth-child(6) { --float-delay: .9s; }
+.photo-card:nth-child(7) { --float-delay: 1.5s; }
+.photo-card:nth-child(8) { --float-delay: 2.1s; }
+
+/* اختياري: طفو أخف على الموبايل عشان الأداء */
+@media (max-width: 600px) {
+  @keyframes floatY {
+    0%   { translate: 0 0; }
+    50%  { translate: 0 -4px; }
+    100% { translate: 0 0; }
+  }
+  .photo-card { animation-duration: 7s, 7s; }
+}
+
+/* لو كان عندك بلوك يوقف الأنيميشن (prefers-reduced-motion: reduce)
+   وعايز تجبر الحركة، احذف البلوك القديم أو أضف التالي: */
+@media (prefers-reduced-motion: no-preference) {
+  .photo-card {
+    animation-play-state: running !important;
+  }
 }

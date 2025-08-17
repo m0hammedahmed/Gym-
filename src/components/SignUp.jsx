@@ -20,16 +20,36 @@ export default function SignUp() {
       alert("كلمتا المرور غير متطابقتين!");
       return;
     }
+
+    // جلب المستخدمين الموجودين
     const users = JSON.parse(localStorage.getItem("users")) || [];
-    if (users.some(user => user.email === email)) {
+
+    // التحقق لو الإيميل موجود بالفعل
+    if (users.some((user) => user.email === email)) {
       alert("هذا البريد الإلكتروني مسجل بالفعل!");
       return;
     }
-    const newUser = { fullName, email, password };
+
+    // ✅ تعيين الدور (الـ Admin بإيميل معين مثلاً)
+    const role = email === "admin@example.com" ? "admin" : "user";
+
+    // إنشاء المستخدم الجديد
+    const newUser = { fullName, email, password, role };
     users.push(newUser);
     localStorage.setItem("users", JSON.stringify(users));
-    alert("تم إنشاء الحساب بنجاح!");
-    navigate("/login");
+
+    // ✅ تسجيل الدخول أوتوماتيك بعد التسجيل
+    localStorage.setItem("isLoggedIn", "true");
+    localStorage.setItem("role", role);
+
+    alert("تم إنشاء الحساب وتسجيل الدخول بنجاح!");
+
+    // ✅ توجيه المستخدم حسب دوره
+    if (role === "admin") {
+      navigate("/admin");
+    } else {
+      navigate("/");
+    }
   };
 
   return (
@@ -41,32 +61,34 @@ export default function SignUp() {
       <div className="auth-content">
         <div className="auth-form">
           <div className="auth-h">
-            <h2>SignUp</h2>
+            <h2>Sign Up</h2>
           </div>
-          <input 
-            placeholder="Full Name" 
+          <input
+            placeholder="Full Name"
             value={fullName}
             onChange={(e) => setFullName(e.target.value)}
           />
-          <input 
-            placeholder="Email" 
-            type="email" 
+          <input
+            placeholder="Email"
+            type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
-          <input 
-            placeholder="Password" 
-            type="password" 
+          <input
+            placeholder="Password"
+            type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-          <input 
-            placeholder="Confirm Password" 
-            type="password" 
+          <input
+            placeholder="Confirm Password"
+            type="password"
             value={confirmPassword}
             onChange={(e) => setConfirmPassword(e.target.value)}
           />
-          <button className="btn-yellow" onClick={handleSignUp}>Create Account</button>
+          <button className="btn-yellow" onClick={handleSignUp}>
+            Create Account
+          </button>
 
           {/* رابط التبديل إلى صفحة تسجيل الدخول */}
           <p className="auth-switch-link">

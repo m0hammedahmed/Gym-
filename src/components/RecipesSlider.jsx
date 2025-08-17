@@ -45,7 +45,7 @@ export default function RecipesSlider() {
         </div>
 
         <div className="sidebar">
-          <button className="more-button">View More Recipes</button>
+        
           {recipes.map((item, index) => (
             <div
               key={index}

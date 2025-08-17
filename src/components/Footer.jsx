@@ -18,13 +18,19 @@ const GymFooter = () => {
     <footer className="gym-footer">
       <div className="footer-container">
         {/* Logo & Quote */}
-        <div className="footer-brand">
-          {footerData.logo && <img src={footerData.logo} alt="Gold Gym Logo" />}
-          <p className="quote">{footerData.quote}</p>
+        <div className="footer-brand fade-in">
+          {footerData.logo && (
+            <img
+              src={footerData.logo}
+              alt="Gym Logo"
+              className="footer-logo bounce-in"
+            />
+          )}
+          <p className="quote slide-up">{footerData.quote}</p>
         </div>
 
         {/* Quick Links */}
-        <div className="footer-links">
+        <div className="footer-links slide-in-left">
           <h3>Quick Links</h3>
           <ul>
             {footerData.quickLinks.map((link, i) => (
@@ -36,7 +42,7 @@ const GymFooter = () => {
         </div>
 
         {/* Info Section */}
-        <div className="footer-info">
+        <div className="footer-info slide-in-right">
           <h3>Contact</h3>
           <p>{footerData.contact.address}</p>
           <p>{footerData.contact.phone}</p>
@@ -44,19 +50,38 @@ const GymFooter = () => {
         </div>
 
         {/* Social Media */}
-        <div className="footer-social">
+        <div className="footer-social fade-in">
           <h3>Follow Us</h3>
           <div className="social-icons">
-            <a href={footerData.social.facebook} className="icon fb" target="_blank" rel="noreferrer"></a>
-            <a href={footerData.social.instagram} className="icon ig" target="_blank" rel="noreferrer"></a>
-            <a href={footerData.social.whatsapp} className="icon wa" target="_blank" rel="noreferrer"></a>
+            <a
+              href={footerData.social.facebook}
+              className="icon fb"
+              target="_blank"
+              rel="noreferrer"
+            ></a>
+            <a
+              href={footerData.social.instagram}
+              className="icon ig"
+              target="_blank"
+              rel="noreferrer"
+            ></a>
+            <a
+              href={footerData.social.whatsapp}
+              className="icon wa"
+              target="_blank"
+              rel="noreferrer"
+            ></a>
           </div>
         </div>
       </div>
 
       {/* Bottom */}
       <div className="footer-bottom">
-        <p>&copy; {new Date().getFullYear()} TRENDWS GYM | Designed by Mohammed Ahmed Nasr</p>
+        <p>
+          &copy; {new Date().getFullYear()}{" "}
+          <span className="brand">TRENDWS GYM</span> | Designed by{" "}
+          <span className="designer">Mohammed Ahmed Nasr</span>
+        </p>
       </div>
     </footer>
   );
